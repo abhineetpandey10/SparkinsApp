@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746493304249",
+    "project_id": "sparkinsapp",
+    "storage_bucket": "sparkinsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746493304249:android:df3fd419344c55e7676a68",
+        "android_client_info": {
+          "package_name": "com.sparkee.sparkinsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746493304249-ps5q9u19fc8nbiklr8kprf3okkajv3nt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcAxV_ti2fm5WKUiynMK5-l_wv3Eg0Saw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746493304249-ps5q9u19fc8nbiklr8kprf3okkajv3nt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
