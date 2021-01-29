@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
 
         android:text="Add Medicines"
+        android:fontFamily="@font/gilroy_bold"
         android:textColor="@color/colorPrimary"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
@@ -86,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp" />
+            android:layout_margin="8dp" />
 
 
     </androidx.cardview.widget.CardView>
@@ -100,8 +101,23 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+
+    <Button
+        android:id="@+id/showbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toEndOf="@+id/savebtn"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        app:layout_constraintVertical_bias="0.561" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

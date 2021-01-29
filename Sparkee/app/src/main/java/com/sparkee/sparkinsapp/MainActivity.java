@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imgvw;
-    private  ImageView imgvw2;
+    private  ImageView imgvw2,imgvw3;
     public static MainActivity mainActivity;
     public static Boolean isVisible = false;
     private static final String TAG = "MainActivity";
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imgvw= findViewById(R.id.imageView3);
+
 
         mainActivity = this;
         registerWithNotificationHubs();
@@ -50,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        imgvw3=findViewById(R.id.imageView7);
+        imgvw3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, DigitalInkActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+
 
 
     }

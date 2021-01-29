@@ -1,6 +1,6 @@
 package com.sparkee.sparkinsapp;
 
-import android.widget.NumberPicker;
+
 
 class MedicineHelper {
 
@@ -20,7 +20,7 @@ class MedicineHelper {
 
 
 
-    public String getMedicinename() {
+    public  String getMedicinename() {
         return medicinename;
     }
 

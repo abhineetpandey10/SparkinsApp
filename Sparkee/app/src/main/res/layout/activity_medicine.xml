@@ -6,19 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MedicineActivity">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/medibirdy"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="Medicines Taken?"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:textSize="40dp"
+        android:fontFamily="@font/gilroy_bold"/>
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="280dp"
         android:id="@+id/medilist"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/addfab"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/colorPrimary"
 
-        android:id="@+id/fab"
         android:src="@drawable/ic_baseline_add_24"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
