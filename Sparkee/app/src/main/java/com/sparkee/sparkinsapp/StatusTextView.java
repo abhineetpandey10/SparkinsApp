@@ -18,6 +18,7 @@ public class StatusTextView extends AppCompatTextView implements StatusChangedLi
 
     private StrokeManager strokeManager;
 
+
     public StatusTextView(@NonNull Context context) {
         super(context);
     }
@@ -28,7 +29,9 @@ public class StatusTextView extends AppCompatTextView implements StatusChangedLi
 
     @Override
     public void onStatusChanged() {
+
         this.setText(this.strokeManager.getStatus());
+
     }
 
     void setStrokeManager(StrokeManager strokeManager) {

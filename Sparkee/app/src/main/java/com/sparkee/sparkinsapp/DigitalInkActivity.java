@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,12 @@ import java.util.Set;
 public class DigitalInkActivity extends AppCompatActivity implements DownloadedModelsChangedListener {
 
     private static final String TAG = "MLKDI.Activity";
+
+    private TextView compare;
+    private String name="Shikhar";
+    private RecognitionTask.RecognizedInk text;
+
+
     private static final ImmutableMap<String, String> NON_TEXT_MODELS =
             ImmutableMap.of(
                     "zxx-Zsym-x-autodraw",
@@ -83,6 +90,10 @@ public class DigitalInkActivity extends AppCompatActivity implements DownloadedM
                         Log.i(TAG, "No language selected");
                     }
                 });
+
+        compare=findViewById(R.id.compare);
+
+
 
         strokeManager.reset();
     }

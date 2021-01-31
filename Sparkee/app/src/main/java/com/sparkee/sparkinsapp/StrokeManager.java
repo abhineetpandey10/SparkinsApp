@@ -18,6 +18,8 @@ import java.util.Set;
 /** Manages the recognition logic and the content that has been added to the current page. */
 public class StrokeManager {
 
+    private String str= "Sparkins";
+
     /** Interface to register to be notified of changes in the recognized content. */
     public interface ContentChangedListener {
 
@@ -95,11 +97,25 @@ public class StrokeManager {
             statusChangedListener.onStatusChanged();
         }
     }
+    public static double score(String originalString, String analysedString)
+    {
+        originalString=originalString.toUpperCase();
+        analysedString=analysedString.toUpperCase();
+        int len=Math.min(originalString.length(),analysedString.length());
+        double difference=Math.abs(originalString.length()-analysedString.length());
+        for(int i=0;i<len;i++)
+        {
+            if(originalString.charAt(i)!=analysedString.charAt(i))
+                difference+=1;
+        }
+        double normalizedScore=(1-(difference/((double)originalString.length())))*10;
+        return normalizedScore;
+    }
 
     private void commitResult() {
         if (recognitionTask.done() && recognitionTask.result() != null) {
             content.add(recognitionTask.result());
-            setStatus("Successful recognition: " + recognitionTask.result().text);
+            setStatus("Successful recognition: " + recognitionTask.result().text + " " + score(recognitionTask.result().text,str) );
             if (clearCurrentInkAfterRecognition) {
                 resetCurrentInk();
             }
