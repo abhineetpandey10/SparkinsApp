@@ -25,6 +25,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:padding="10dp"
+            android:backgroundTint="@color/colorPrimary"
+
             android:hint="Enter your message"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnSend"
@@ -35,12 +37,15 @@
             android:id="@+id/btnSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:tint="#43A047"
+            android:layout_marginEnd="8dp"
+            android:tint="@color/colorPrimary"
+            android:background="@android:color/white"
+
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_media_play" />
+            android:src="@drawable/ic_send_24dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
