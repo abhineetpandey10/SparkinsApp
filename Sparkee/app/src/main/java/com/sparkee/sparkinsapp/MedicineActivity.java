@@ -25,6 +25,7 @@ public class MedicineActivity extends AppCompatActivity {
     private FloatingActionButton addfab;
 
     private RecyclerView medilist;
+
     private FirebaseDatabase db= FirebaseDatabase.getInstance();
     private DatabaseReference root= db.getReference().child("medicines");
     private MedicineAdapter medadapter;

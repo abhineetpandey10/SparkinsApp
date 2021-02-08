@@ -23,7 +23,10 @@ import com.google.common.collect.ImmutableSortedSet;
 import com.sparkee.sparkinsapp.StrokeManager.DownloadedModelsChangedListener;
 import com.google.mlkit.vision.digitalink.DigitalInkRecognitionModelIdentifier;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Set;
 
 
@@ -32,8 +35,13 @@ public class DigitalInkActivity extends AppCompatActivity implements DownloadedM
     private static final String TAG = "MLKDI.Activity";
 
     private TextView compare;
-    private String name="Shikhar";
+    private String name="SHikhar";
     private RecognitionTask.RecognizedInk text;
+    public static TextView txtv;
+    public static String random;
+    Random rand = new Random();
+
+    List<String> list = new ArrayList<String>();
 
 
     private static final ImmutableMap<String, String> NON_TEXT_MODELS =
@@ -54,6 +62,23 @@ public class DigitalInkActivity extends AppCompatActivity implements DownloadedM
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digital_ink);
+
+        list.add("Perseverance");
+        list.add("Hogwards");
+        list.add("Positivity");
+        list.add("Strength");
+        list.add("Determination");
+        list.add("Happiness");
+        list.add("Coffee");
+
+
+        TextView tv= (TextView) findViewById(R.id.word);
+
+
+        random = list.get(rand.nextInt(list.size()));
+        tv.setText(random);
+
+
 
         Spinner languageSpinner = findViewById(R.id.languages_spinner);
 
@@ -92,6 +117,8 @@ public class DigitalInkActivity extends AppCompatActivity implements DownloadedM
                 });
 
         compare=findViewById(R.id.compare);
+         txtv= findViewById(R.id.word);
+
 
 
 

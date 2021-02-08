@@ -2,7 +2,10 @@ package com.sparkee.sparkinsapp;
 
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -13,12 +16,19 @@ import com.google.mlkit.vision.digitalink.Ink;
 import com.google.mlkit.vision.digitalink.Ink.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 /** Manages the recognition logic and the content that has been added to the current page. */
 public class StrokeManager {
 
-    private String str= "Sparkins";
+
+
+
+
+
+
+
 
     /** Interface to register to be notified of changes in the recognized content. */
     public interface ContentChangedListener {
@@ -112,10 +122,15 @@ public class StrokeManager {
         return normalizedScore;
     }
 
+
     private void commitResult() {
+        String str= DigitalInkActivity.random;
+
+
+
         if (recognitionTask.done() && recognitionTask.result() != null) {
             content.add(recognitionTask.result());
-            setStatus("Successful recognition: " + recognitionTask.result().text + " " + score(recognitionTask.result().text,str) );
+            setStatus("Successful recognition: " + recognitionTask.result().text + " "+ score(recognitionTask.result().text,str) );
             if (clearCurrentInkAfterRecognition) {
                 resetCurrentInk();
             }
@@ -124,6 +139,8 @@ public class StrokeManager {
             }
         }
     }
+
+
 
     public void reset() {
         Log.i(TAG, "reset");
@@ -278,4 +295,3 @@ public class StrokeManager {
                         });
     }
 }
-

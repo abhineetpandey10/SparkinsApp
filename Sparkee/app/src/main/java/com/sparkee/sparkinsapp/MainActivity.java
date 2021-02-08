@@ -16,11 +16,12 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imgvw;
-    private  ImageView imgvw2,imgvw3;
+    private  ImageView imgvw2,imgvw3,imgvw4;
     public static MainActivity mainActivity;
     public static Boolean isVisible = false;
     private static final String TAG = "MainActivity";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imgvw= findViewById(R.id.imageView3);
+
 
 
         mainActivity = this;
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        imgvw4=findViewById(R.id.imageView6);
+        imgvw4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(myIntent);
+            }
+        });
+
 
 
 
