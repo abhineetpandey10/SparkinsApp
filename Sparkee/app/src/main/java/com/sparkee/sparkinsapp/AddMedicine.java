@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,7 +33,12 @@ public class AddMedicine extends AppCompatActivity implements TimePickerDialog.O
     private NumberPicker numpick;
     private Button savebtn,show;
     private FirebaseDatabase db= FirebaseDatabase.getInstance();
-    private DatabaseReference root= db.getReference().child("medicines");
+    private DatabaseReference root;
+
+
+    private FirebaseAuth mAuth;
+
+
 
 
     @Override
@@ -57,6 +64,14 @@ public class AddMedicine extends AppCompatActivity implements TimePickerDialog.O
                 int priority=numpick.getValue();
 
                 MedicineHelper medihelp= new MedicineHelper(name,desc,priority);
+
+                mAuth = FirebaseAuth.getInstance();
+
+                FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = current_user.getUid();
+
+                root= FirebaseDatabase.getInstance().getReference("Users").child(uid).child("medicine");
+
 
                 root.child(String.valueOf(priority)).setValue(medihelp).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

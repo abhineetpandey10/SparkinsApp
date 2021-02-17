@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,10 +29,10 @@ public class MedicineActivity extends AppCompatActivity {
     private RecyclerView medilist;
 
     private FirebaseDatabase db= FirebaseDatabase.getInstance();
-    private DatabaseReference root= db.getReference().child("medicines");
+    private DatabaseReference root;
     private MedicineAdapter medadapter;
     private ArrayList<MedicineHelper> list;
-
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -45,6 +47,13 @@ public class MedicineActivity extends AppCompatActivity {
         list=new ArrayList<>();
         medadapter= new MedicineAdapter(this,list);
         medilist.setAdapter(medadapter);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = current_user.getUid();
+
+        root= FirebaseDatabase.getInstance().getReference("Users").child(uid).child("medicine");
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
